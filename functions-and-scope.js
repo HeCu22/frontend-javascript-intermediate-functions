@@ -22,7 +22,7 @@ for (let i = 0; i < grades.length; i++) {
         aantal++;
     }
 }
-console.log(aantal);
+console.log("Cum Laude", aantal);
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -46,7 +46,11 @@ function getCumlaude(grades) {
 }
 
 // * de waardes als een reeks getallen tussen blokhaken meegeven;
-const uitkomst = getCumlaude([8, 9, 4, 6, 10]);
+let uitkomst = getCumlaude(grades);
+console.log(uitkomst);
+uitkomst = getCumlaude([6, 4, 5]);
+console.log(uitkomst);
+uitkomst = getCumlaude([8, 9, 4, 6, 10]);
 console.log(uitkomst);
 
 /* Opdracht  2: Gemiddeld cijfer */
@@ -62,12 +66,12 @@ let totaal = 0;
 for (let i = 0; i < grades.length; i++) {
     totaal = totaal + grades[i];
 }
-console.log(totaal);
+console.log("Totaal", totaal);
 // * Hoe zorg ik ervoor dat ik alle waardes uit de array kan langslopen, ook als de array wel 100 entries zou bevatten?
 // door de property length van de array te gebruiken
 const gemiddelde = totaal / grades.length;
 // Log het antwoord in de terminal.
-console.log(gemiddelde);
+console.log("Gemiddelde:", gemiddelde);
 // ---- Verwachte uitkomst: 6.642857142857143
 
 
@@ -156,4 +160,6 @@ function getHoogste(grades) {
 const hoogsteCijfer = getHoogste(grades);
 
 
-console.log(hoogsteCijfer);
+console.log("Hoogste", hoogsteCijfer);
+console.log(getHoogste([6, 4, 5]));
+console.log(getHoogste([8, 9, 4, 6, 10]));
