@@ -8,8 +8,13 @@
 // getEmailDomain("n.eeken@novi-education.nl") geeft novi-education.nl
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
+function getEmailDomain(string) {
+    return string.split("@")[1];
 
-
+}
+console.log(getEmailDomain("n.eeken@novi-education.nl"));
+console.log(getEmailDomain("t.mellink@novi.nl"));
+console.log(getEmailDomain("a.wiersma@outlook.com"));
 
 
 /* Opdracht  2 */
@@ -20,7 +25,25 @@
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
+function typeOfEmail(email) {
+    string = getEmailDomain(email);
+    switch (string) {
+        case "novi-education.nl":
+            return "Student";
+            break;
+        case "novi.nl":
+            return "Medewerker";
+            break;
+        default:
+            return "Extern";
 
+    }
+}
+
+console.log(typeOfEmail("n.eeken@novi-education.nl"));
+console.log(typeOfEmail("t.mellink@novi.nl"));
+console.log(typeOfEmail("novi.nlaapjesk@outlook.com"));
+console.log(typeOfEmail("a.wiersma@outlook.com"));
 
 /* Opdracht  3 */
 // Schrijf een functie genaamd checkEmailValidity, die een emailadres verwacht en checkt of het emailadres valide is. De functie returned true of false, afhankelijk van de uitkomst.
@@ -34,3 +57,31 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+function checkEmailValidity(emailadres) {
+   if (emailadres.includes("@")) {
+        if (emailadres.includes(",") || (emailadres.charAt(emailadres.length - 1) === ".")) {
+            return false;
+        } else {
+            return true;
+        }
+
+    } else {
+        return false;
+    }
+}
+
+//                            /* geeft true - want @ en punt op de juiste plek
+console.log(checkEmailValidity("n.eekena@novi.nl"));
+
+// checkEmailValidity("tessmellink@novi.nl") geeft true - want @ en punt op de juiste plek
+console.log(checkEmailValidity("tessmellink@novi.nl"));
+
+// checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
+console.log(checkEmailValidity("n.eekenanovi.nl"));
+
+// checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
+console.log(checkEmailValidity("n.eeken@novinl."));
+
+// checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+console.log(checkEmailValidity("tessmellink@novi,nl"));
+

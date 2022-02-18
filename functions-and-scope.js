@@ -103,7 +103,7 @@ restWaarde = (gemiddeldeWaarde * 10000 % 100) / 10000;
 console.log("restwaarde", restWaarde);
 // afronden op hondersten;
 let nieuwGemiddelde = (gemiddeldeWaarde - restWaarde) * 100;
-if (restWaarde >= 0.0044444444 ) {
+if (restWaarde >= 0.0044444444) {
     nieuwGemiddelde++;
 } else {
     console.log('else');
@@ -117,9 +117,19 @@ console.log('nieuw: ', nieuwGemiddelde);
 /* 3a: Script schrijven  */
 // Schrijf een script die op basis van de grades array (hierboven) checkt wat het hoogst behaalde cijfer is. Je mag hier geen bestaande methoden voor gebruiken. Schrijf de stapjes eerst uit en vraag jezelf de volgende dingen af:
 // * Hoe kan ik iedere waarde van de array langsgaan?
+let hoogsteWaarde = 0;
+for (let i = 0; i < grades.length; i++) {
+
 // * Op welke conditie moet ik checken?
+    if (grades[i] > hoogsteWaarde) {
+
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan opslaan?
+        hoogsteWaarde = grades[i];
+    }
+
 // Log het antwoord in de terminal.
+}
+console.log(hoogsteWaarde);
 
 // ---- Verwachte uitkomst: 9
 
@@ -133,3 +143,17 @@ console.log('nieuw: ', nieuwGemiddelde);
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+function getHoogste(grades) {
+    let hoogsteWaarde = 0;
+    for (let i = 0; i < grades.length; i++) {
+        if (grades[i] > hoogsteWaarde) {
+            hoogsteWaarde = grades[i];
+        }
+    }
+    return hoogsteWaarde;
+}
+const hoogsteCijfer = getHoogste(grades);
+
+
+console.log(hoogsteCijfer);
